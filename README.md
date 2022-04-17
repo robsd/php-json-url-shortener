@@ -1,4 +1,4 @@
-# php-json-url-shortener-2 🔗
+# php-json-url-shortener 🔗
 
 Another URL shortener written in PHP which uses JSON as a URL storage method.
 
