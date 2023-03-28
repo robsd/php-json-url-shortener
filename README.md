@@ -11,3 +11,9 @@ Another URL shortener written in PHP which uses JSON as a URL storage method.
 ## Need a hint?
 
 I have created 2 example shortened URLs in **urls.json** based on the above setup guide.
+
+## Support my work
+
+If you like this repo or used any of the code, please star ⭐ it and consider supporting me below...
+
+[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/F1F34TIDQ)
