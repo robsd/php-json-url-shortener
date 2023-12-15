@@ -1,22 +1,29 @@
 <?php
 	if (!isset($_GET['alias']))
 	{
-		die("Welcome to the URL shortener!");
+		http_response_code(400);
+		die("No URL requested!");
 	}
-	
+
 	$alias = htmlspecialchars($_GET['alias']);
-		
+
 	if (!$urls = file_get_contents("urls.json"))
 	{
-		die("Couldn't read urls.json!");
+		http_response_code(500);
+		die("urls.json is empty or doesn't exist!");
 	}
-	
-	$urls = json_decode($urls, true);
-	
-	if (array_key_exists($alias, $urls))
+
+	if (!$urls = json_decode($urls, 1))
 	{
-		header("Location: " . $urls[$alias]);
+		http_response_code(500);
+		die("Syntax error in urls.json!");
 	}
-	
-	echo "URL /$alias not found!";
+
+	if (!array_key_exists($alias, $urls))
+	{
+		http_response_code(404);
+		die("/$alias not found!");
+	}
+
+	header("Location: " . $urls[$alias]);
 ?>
